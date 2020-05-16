@@ -85,7 +85,7 @@ static esp_err_t stream_handler(httpd_req_t *req){
 
 void startCameraServer(){
   httpd_config_t config = HTTPD_DEFAULT_CONFIG();
-  config.server_port = 80;
+  config.server_port = 1888;
 
   httpd_uri_t index_uri = {
     .uri       = "/",
