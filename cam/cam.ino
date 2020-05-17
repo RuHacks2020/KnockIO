@@ -8,12 +8,13 @@
 #include "soc/rtc_cntl_reg.h" 
 #include "esp_http_server.h"
 #include "cam.h"
+#include "EasyBuzzer.h"
 
 // WIFI
 const char* ssid = "";
 const char* password = "";
 
-
+int buttonState = 0;
 
 #define PART_BOUNDARY "123456789000000000000987654321"
 
@@ -98,11 +99,17 @@ void startCameraServer(){
   }
 }
 
+
+
 void setup() {
   WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); 
  
   Serial.begin(115200);
   Serial.setDebugOutput(false);
+  
+  
+  pinMode(1, INPUT);
+  EasyBuzzer.setPin(2);
   
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
@@ -157,7 +164,19 @@ void setup() {
   // Start streaming web server
   startCameraServer();
 }
-
+bool flag = true;
 void loop() {
-  delay(1);
+  delay(100);
+  buttonState = digitalRead(1);
+  
+  
+  if(buttonState == LOW){
+      Serial.print("PRESSED\n");
+      
+  }
+
+  
+ 
+ 
+
 }
