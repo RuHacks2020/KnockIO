@@ -28,6 +28,8 @@ Backend: https://github.com/RuHacks2020/KnockIO-Node-Server
 Devpost: https://devpost.com/software/knockio
 
 
+## Pictures
+
 Circuit Schematic:
 
 ![](https://i.imgur.com/4pN8AFMl.png)
